@@ -6,30 +6,20 @@ import java.util.ArrayList;
 
 public class King extends Pieces {
 
-    public King(int x, int y, boolean isWhite) {
-        super(x, y, isWhite);
+    public King(Board board, int x, int y, boolean isWhite) {
+        super(board, x, y, isWhite);
 
         this.letter = "K";
         this.value = 99;
     }
 
     @Override
-    protected void move(Position position, Board board) {
-
-    }
-
-    @Override
-    protected boolean attackAllies(Position position, Board board) {
-        return false;
-    }
-
-    @Override
-    protected boolean canMove(Position destination, Board board) {
+    protected boolean canMove(Position destination) {
         if (!this.inBounds(destination)) {
             return false;
         }
 
-        if (this.attackAllies(destination, board)) {
+        if (this.attackAllies(destination)) {
             return false;
         }
 
@@ -37,12 +27,22 @@ public class King extends Pieces {
     }
 
     @Override
-    protected boolean moveThroughPieces(Position position, Board board) {
-        return false;
-    }
-
-    @Override
-    protected boolean generateMoves(Board board) {
+    protected ArrayList<Position> generateMoves() {
         ArrayList<Position> moves = new ArrayList<>();
+        for (int i = -1 ; i < 2; i++) {
+            for (int j = -1 ; j < 2; j++) {
+                int x = getX() + i;
+                int y = getY() + j;
+                if (this.inBounds(x, y)) {
+                    if (i != 0 || j != 0) {
+                        if (!this.attackAllies(x, y)) {
+                            moves.add(new Position(x,y));
+                        }
+                    }
+                }
+            }
+        }
+
+        return moves;
     }
 }

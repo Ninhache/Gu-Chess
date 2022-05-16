@@ -10,4 +10,11 @@ public class Board {
         boardCases = new BoardCase[8][8];
     }
 
+    public BoardCase[][] getBoardCases() {
+        return boardCases;
+    }
+
+    public Pieces getPieceAt(int x, int y) {
+        return boardCases[x][y].getPieces();
+    }
 }

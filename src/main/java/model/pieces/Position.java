@@ -17,6 +17,14 @@ public class Position {
         return x;
     }
 
+    public void addX(int x) {
+        this.x += x;
+    }
+
+    public void addY(int y) {
+        this.y += y;
+    }
+
     public void setX(int x) {
         this.x = x;
     }
@@ -25,4 +33,7 @@ public class Position {
         this.y = y;
     }
 
+    protected Position clone() {
+        return new Position(getX(), getY());
+    }
 }
