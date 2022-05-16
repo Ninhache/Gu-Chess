@@ -12,10 +12,12 @@ public abstract class Pieces {
 
     protected Position position;
     protected boolean isWhite;
-    protected int value;
     protected String letter;
     protected boolean taken = false;
     protected Board board;
+
+    // Can be usefull if I want to implement an AI
+    protected int value;
 
     /**
      * A pieces can be created out of the board, but won't be able to be set on it ..
@@ -98,22 +100,25 @@ public abstract class Pieces {
      * @return
      */
     protected boolean moveThroughPieces(Position position) {
+        return moveThroughPieces(position.getX(), position.getY());
+    }
 
-        int tempX = position.getX() - getX();
+    protected boolean moveThroughPieces(int x, int y) {
+        int tempX = x - getX();
         if (tempX > 0) {
             tempX = 1;
         } else if (tempX < 0) {
             tempX = -1;
         }
 
-        int tempY = position.getY() - getY();
+        int tempY = y - getY();
         if (tempY > 0) {
             tempY = 1;
         } else if (tempY < 0) {
             tempY = -1;
         }
 
-        Position tempPos = position.clone();
+        Position tempPos = new Position(x,y);
         tempPos.addX(tempX);
         tempPos.addY(tempY);
 
