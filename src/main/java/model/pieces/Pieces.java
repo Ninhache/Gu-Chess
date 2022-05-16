@@ -151,4 +151,37 @@ public abstract class Pieces {
     public int getY() {
         return getPosition().getY();
     }
+
+    public boolean isTaken() {
+        return taken;
+    }
+
+    public boolean isWhite() {
+        return isWhite;
+    }
+
+    public void move(int x, int y) {
+        Pieces piece = board.getPieceAt(x,y);
+        if (piece != null) {
+            piece.taken = true;
+        }
+
+        this.position = new Position(x,y);
+    }
+
+    public List<Board> generateNewBoard() {
+        List<Board> boards = new ArrayList<>();
+        List<Position> positions = this.generateMoves();
+
+        for (int i = 0 ; i < positions.size() ; i++) {
+            boards.add(i, this.board.clone());
+            boards.get(i).move(position, positions.get(i));
+        }
+
+        return boards;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }

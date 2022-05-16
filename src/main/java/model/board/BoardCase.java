@@ -29,6 +29,14 @@ public class BoardCase {
         return getPieces() == null;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;
@@ -38,5 +46,11 @@ public class BoardCase {
         return this.y == boardCase.y;
     }
 
+    @Override
+    protected BoardCase clone() {
+        BoardCase boardCase = new BoardCase(x, y, getPieces());
+
+        return boardCase;
+    }
 }
 
