@@ -24,4 +24,11 @@ public class ChessMenu extends VBox {
         return instance;
     }
 
+    public Button getButtonPlayAlone() {
+        return buttonPlayAlone;
+    }
+
+    public Button getButtonPlayFriend() {
+        return buttonPlayFriend;
+    }
 }
