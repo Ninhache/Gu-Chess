@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.ImagesUtil;
 import model.board.Board;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ public class Bishop extends Pieces{
         super(board, x, y, isWhite);
         this.letter = "B";
         this.value = 3;
+
+        String color = isWhite ? "W" : "B";
+        this.image = ImagesUtil.createImage(this, "images/" + color + "_BISHOP.png");
     }
 
     @Override

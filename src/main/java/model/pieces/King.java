@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.ImagesUtil;
 import model.board.Board;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ public class King extends Pieces {
 
         this.letter = "K";
         this.value = 99;
+
+        String color = isWhite ? "W" : "B";
+        this.image = ImagesUtil.createImage(this, "images/" + color + "_KING.png");
     }
 
     @Override

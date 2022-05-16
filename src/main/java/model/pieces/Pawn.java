@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.ImagesUtil;
 import model.board.Board;
 
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ public class Pawn extends Pieces {
         firstTurn = true;
         this.letter = "P";
         this.value = 1;
+
+        String color = isWhite ? "W" : "B";
+        this.image = ImagesUtil.createImage(this, "images/" + color + "_PAWN.png");
     }
 
     @Override

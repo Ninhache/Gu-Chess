@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.ImagesUtil;
 import model.board.Board;
 
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ public class Queen extends Pieces {
 
         this.letter = "Q";
         this.value = 9;
+
+        String color = isWhite ? "W" : "B";
+        this.image = ImagesUtil.createImage(this, "images/" + color + "_QUEEN.png");
     }
 
     @Override

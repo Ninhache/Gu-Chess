@@ -1,6 +1,10 @@
 package model.pieces;
 
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import model.board.Board;
+import view.ChessCanvas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +19,7 @@ public abstract class Pieces {
     protected String letter;
     protected boolean taken = false;
     protected Board board;
+    protected Image image;
 
     // Can be usefull if I want to implement an AI
     protected int value;
@@ -103,6 +108,10 @@ public abstract class Pieces {
         return moveThroughPieces(position.getX(), position.getY());
     }
 
+    public void show(GraphicsContext gc) {
+        gc.drawImage(this.image, gc.getCanvas().getWidth()/2, gc.getCanvas().getHeight()/2, 150, 150);
+    }
+
     protected boolean moveThroughPieces(int x, int y) {
         int tempX = x - getX();
         if (tempX > 0) {
@@ -183,5 +192,9 @@ public abstract class Pieces {
 
     public int getValue() {
         return value;
+    }
+
+    public Image getImage() {
+        return image;
     }
 }

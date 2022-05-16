@@ -38,7 +38,7 @@ public class Board {
 
             boolean isWhite = Character.isLowerCase(charAt_piece);
 
-            Pieces pieces;
+            Pieces pieces = null;
 
             switch (Character.toLowerCase(charAt_piece)) {
                 case 'p':
@@ -63,10 +63,10 @@ public class Board {
                     break;
             }
 
-            if (isWhite) {
-
-            } else {
-
+            if (isWhite && pieces != null) {
+                whitePieces.add(pieces);
+            } else if (pieces != null){
+                blackPieces.add(pieces);
             }
 
         }

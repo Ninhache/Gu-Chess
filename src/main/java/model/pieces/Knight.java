@@ -1,8 +1,8 @@
 package model.pieces;
 
+import model.ImagesUtil;
 import model.board.Board;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +12,9 @@ public class Knight extends Pieces{
         super(board, x, y, isWhite);
         this.letter = "Kn";
         this.value = 3;
+
+        String color = isWhite ? "W" : "B";
+        this.image = ImagesUtil.createImage(this, "images/" + color + "_KNIGHT.png");
     }
 
     @Override
