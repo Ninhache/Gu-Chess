@@ -35,8 +35,8 @@ public class Bishop extends Pieces{
         ArrayList<Position> moves = new ArrayList<>();
 
         for (int i = 0 ; i < 8 ; i++) {
-            var x = i;
-            var y = getY() - (getX() - i);
+            int x = i;
+            int y = getY() - (getX() - i);
 
             if (x != getX()) {
                 if (inBounds(x,y)) {
@@ -50,8 +50,8 @@ public class Bishop extends Pieces{
         }
 
         for (int i = 0 ; i < 8 ; i++) {
-            var x = getX() - (getY() - i);
-            var y = i;
+            int x = getX() - (getY() - i);
+            int y = i;
 
             if (x != getX()) {
                 if (inBounds(x,y)) {
