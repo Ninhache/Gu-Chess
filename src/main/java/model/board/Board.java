@@ -38,8 +38,6 @@ public class Board {
 
             boolean isWhite = Character.isLowerCase(charAt_piece);
 
-            boardCases[x][y] = new BoardCase(x, y);
-
             Pieces pieces;
 
             switch (Character.toLowerCase(charAt_piece)) {
